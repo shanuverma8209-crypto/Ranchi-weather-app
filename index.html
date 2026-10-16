@@ -31,7 +31,7 @@ async function getWeather(){
  let box=document.getElementById("result");
  box.innerHTML="Loading...";
  try{
-  let r=await fetch(`https://wttr.in/${city}?format=j1`);
+  letlet r=await fetch(`https://wttr.in/${city}?format=j1`);
   let d=await r.json();
   let c=d.current_condition[0];
   let w=d.weather[0];
