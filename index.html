@@ -31,7 +31,14 @@ async function getWeather(){
  let box=document.getElementById("result");
  box.innerHTML="Loading...";
  try{
-  let r=await fetch(`https://wttr.in/${city}?format=j1`);
+  let r=await fetch("https://wttr.in/"+city+"?format=j1");
   let d=await r.json();
   let c=d.current_condition[0];
   let w=d.weather[0];
+  box.innerHTML='<div class="city"> '+city.toUpperCase()+'</div><div class="temp">'+c.temp_C+'°C</div><div>'+c.weatherDesc[0].value+'</div><br><div style="font-size:14px"> Hawa: '+c.windspeedKmph+' km/h | Nami: '+c.humidity+'% | 🌡️ Feels: '+c.FeelsLikeC+'°C</div><br><div style="font-size:13px">Aaj: '+w.mintempC+'°C - '+w.maxtempC+'°C</div>';
+ }catch(e){ box.innerHTML=" City nahi mila! Ranchi, Daltonganj try karo"; }
+}
+getWeather();
+</script>
+</body>
+</html>
